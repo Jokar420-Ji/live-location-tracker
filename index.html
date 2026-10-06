@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live Location Tracker</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar"><div class="brand">📍 Live Location Tracker</div><div class="badge">Permission-based tracking</div></header>
+<main class="wrap">
+<section class="hero">
+ <div><p class="eyebrow">LIVE GPS TRACKING</p><h1>Track a phone<br><span>with a share link.</span></h1>
+ <p class="sub">Create a session on this computer, send the link to a phone, and see that phone's live GPS location here after the phone owner gives permission.</p></div>
+ <div class="hero-card"><div class="status-dot" id="heroDot"></div><div><b id="heroStatus">Admin ready</b><small id="heroHint">Create a tracking link</small></div></div>
+</section>
+
+<section class="grid">
+<div class="panel map-panel">
+ <div class="panel-head"><div><h2>Live Map</h2><p id="sessionLabel">No tracking session</p></div><div class="viewer-pill">📱 <span id="phoneStatus">Phone not connected</span></div></div>
+ <div id="map"></div>
+</div>
+
+<aside class="side">
+<div class="panel controls">
+ <h2>Admin</h2><button id="createBtn" class="primary">➕ Create tracking link</button>
+ <div id="linkArea" class="hidden"><label>Send this link to the mobile</label><div class="shareline"><input id="shareUrl" readonly><button id="copyBtn">Copy</button></div></div>
+ <div class="permission">🔒 The phone user must open the link and tap <b>Share My Live Location</b>. No hidden tracking.</div>
+</div>
+
+<div class="panel stats"><h2>Mobile location</h2>
+ <div class="stat"><span>Latitude</span><b id="lat">—</b></div><div class="stat"><span>Longitude</span><b id="lng">—</b></div>
+ <div class="stat"><span>Accuracy</span><b id="accuracy">—</b></div><div class="stat"><span>Updated</span><b id="updated">—</b></div>
+</div>
+
+<div class="panel weather"><div class="weather-head"><h2>Weather</h2><span id="weatherPlace">Waiting…</span></div>
+ <div class="weather-main"><span id="weatherIcon">☁️</span><b id="temp">—</b><span>°C</span></div>
+ <div class="weather-row"><span>Feels like</span><b id="feels">—</b></div><div class="weather-row"><span>Wind</span><b id="wind">—</b></div>
+</div>
+</aside>
+</section>
+</main>
+
+<footer>Use live location sharing only with the person's knowledge and permission.</footer>
+
+<script src="/socket.io/socket.io.js"></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="/app.js"></script>
+</body></html>
